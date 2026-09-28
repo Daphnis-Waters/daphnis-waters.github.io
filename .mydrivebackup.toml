@@ -1,0 +1,3 @@
+source    = "media"
+folder_id = ""
+exclude   = [".git", ".git/*", ".DS_Store", "*.tmp"]
