@@ -1,3 +1,4 @@
+account   = "fm"
 source    = "media"
-folder_id = ""
+folder_id = "1KUJjHGeI1xOn8THpjcx1rEwdjZCMrZr8"
 exclude   = [".git", ".git/*", ".DS_Store", "*.tmp"]
