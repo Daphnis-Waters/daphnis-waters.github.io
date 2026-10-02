@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daphnis Waters</title>
+  <meta name="description" content="Daphnis Waters — games for fun.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <style>
+    :root {
+      /* Page background matches the logo image's own background so its edges disappear. */
+      --bg: #fefefe;
+      --card: #ffffff;
+      --line: #d5e6e4;
+      --text: #1d2b2c;
+      --muted: #5c6f70;
+      --teal: #06656b;
+      --seafoam: #e3f6ef;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 32px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+
+    .brand { text-align: center; margin-bottom: 40px; }
+
+    .brand img { display: block; width: 168px; height: 168px; margin: 0 auto 12px; }
+
+    .brand h1 {
+      margin: 0;
+      font-weight: 500;
+      font-size: clamp(1.75rem, 6vw, 2.75rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .brand p { margin: 6px 0 0; color: var(--muted); letter-spacing: 0.04em; }
+
+    .cards {
+      width: 100%;
+      max-width: 760px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(6, 101, 107, 0.08);
+    }
+
+    .card-art {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-art img {
+      position: absolute;
+      inset: 16px;
+      width: calc(100% - 32px);
+      height: calc(100% - 32px);
+      object-fit: contain;
+    }
+
+    /* Panel colours match each logo's own background. */
+    .card-art--camra { background: #f9f3dd; }
+    .card-art--kitty { background: #ffffff; }
+
+    .card-body {
+      padding: 14px 20px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-body h2 { margin: 0; font-size: 1.15rem; font-weight: 600; }
+
+    .soon {
+      margin: 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--seafoam);
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .contact {
+      width: 100%;
+      max-width: 760px;
+      margin-top: 40px;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(6, 101, 107, 0.08);
+    }
+
+    .contact h2 { margin: 0 0 16px; font-size: 1.15rem; font-weight: 600; }
+
+    .contact label { display: block; margin-bottom: 14px; font-size: 0.85rem; font-weight: 600; }
+
+    .contact input,
+    .contact textarea {
+      display: block;
+      width: 100%;
+      margin-top: 4px;
+      padding: 10px 12px;
+      border: 1px solid #b9d2cf;
+      border-radius: 10px;
+      background: #ffffff;
+      color: inherit;
+      font: inherit;
+      font-weight: 400;
+    }
+
+    .contact textarea { resize: vertical; }
+
+    .contact input:focus,
+    .contact textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+
+    /* Honeypot: hidden from people; a bot that fills it gets its submission dropped. */
+    .contact .hp { display: none; }
+
+    .contact button {
+      padding: 10px 24px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #ffffff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .contact button:disabled { opacity: 0.6; cursor: default; }
+
+    .contact .form-status { margin: 12px 0 0; font-size: 0.9rem; }
+    .contact .form-note { margin: 12px 0 0; color: var(--muted); font-size: 0.8rem; }
+    .contact .form-note a { color: var(--teal); }
+
+    footer {
+      margin-top: auto;
+      padding-top: 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer p { margin: 4px 0; }
+    footer a { color: var(--teal); }
+    footer .copyright { font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header class="brand">
+    <!-- Interim logo (round 1, teal variation); expected to change after review. -->
+    <img src="assets/daphnis-waters-logo.png" width="480" height="480"
+         alt="Daphnis Waters logo: a letter D inside a ring above teal waves">
+    <h1>Daphnis Waters</h1>
+    <p>Games for fun</p>
+  </header>
+
+  <main class="cards">
+    <article class="card">
+      <div class="card-art card-art--camra">
+        <img src="assets/animal-camra-logo.jpg" width="800" height="598"
+             alt="Animal Camra logo: a dog, cat, deer, rabbit and bird around a camera">
+      </div>
+      <div class="card-body">
+        <h2>Animal Camra</h2>
+        <p class="soon">Coming soon</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-art card-art--kitty">
+        <img src="assets/cuddle-kitty-logo.png" width="512" height="512"
+             alt="Cuddle Kitty logo: a grey pixel-art cat lying down">
+      </div>
+      <div class="card-body">
+        <h2>Cuddle Kitty</h2>
+        <p class="soon">Coming soon</p>
+      </div>
+    </article>
+  </main>
+
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Get in touch</h2>
+    <form action="https://formspree.io/f/moevorer" method="POST">
+      <label>Your email
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label>Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Send</button>
+      <p class="form-status" role="status"></p>
+      <p class="form-note">Messages are delivered through
+        <a href="https://formspree.io/" rel="noopener">formspree.io</a>.
+        See our <a href="privacy.html">privacy policy</a> for how your message is handled.</p>
+    </form>
+  </section>
+
+  <footer>
+    <p><a href="privacy.html">Privacy policy</a></p>
+    <p class="copyright">&copy; 2026 Daphnis Waters</p>
+  </footer>
+
+  <script>
+    // Send the form in place so visitors stay on this page; without JavaScript it posts normally.
+    const form = document.querySelector('.contact form');
+    const status = form.querySelector('.form-status');
+    const button = form.querySelector('button');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      button.disabled = true;
+      status.textContent = 'Sending…';
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error(`Formspree responded ${response.status}`);
+        form.reset();
+        status.textContent = 'Thanks — your message has been sent.';
+      } catch (error) {
+        status.textContent = 'Sorry, that did not send. Please try again in a little while.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
